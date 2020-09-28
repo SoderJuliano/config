@@ -1,0 +1,175 @@
+<!Doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="jquery-3.5.1.min.js"></script>
+<script src="jquery-3.5.1.min.map.js"></script>
+<script src="jquery-migrate-1.4.1.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="Config.css">
+</head>
+<script>
+$(document).ready(function(){
+	$("#select").change(function(){
+		var id = $(this).children(":selected").attr("id");
+		if(id == "o2"){
+			$("p").text( "Atualizações paradas." );
+		}else{
+			$("p").text( "Atualizando." );
+		}
+	});
+	$( "#t1hora" ).blur(function() {
+		
+		localStorage.setItem("t1hora", $('#t1hora').val());
+	});
+	$( "#t2hora" ).blur(function() {
+		
+		localStorage.setItem("t2hora", $('#t2hora').val());
+	});
+	$( "#t2hora" ).blur(function() {
+		
+		localStorage.setItem("t2hora", $('#t2hora').val());
+	});
+	$( "#t3hora" ).blur(function() {
+		
+		localStorage.setItem("t3hora", $('#t3hora').val());
+	});
+	$( "#t1minutos" ).blur(function() {
+		
+		localStorage.setItem("t1minutos", $('#t1minutos').val());
+	});
+	$( "#t2minutos" ).blur(function() {
+		
+		localStorage.setItem("t2minutos", $('#t2minutos').val());
+	});
+	$( "#t3minutos" ).blur(function() {
+		
+		localStorage.setItem("t3minutos", $('#t3minutos').val());
+	});
+	$('#1show').click(function(){
+		// configrações do salvamento arquivo de produção
+   		$('#conteiner-2').toggle();
+		$('#t1hora').val(localStorage.getItem('t1hora'));
+		$('#t1minutos').val(localStorage.getItem('t1minutos'));
+		// config. troca de turno
+		$('#conteiner-5').toggle();
+		$('#t1horaSabadoInicio').val(localStorage.getItem('t1horaSabadoInicio'));
+		$('#t1minutosSabadoInicio').val(localStorage.getItem('t1minutosSabadoInicio'));
+		$('#t1horaSabadoFim').val(localStorage.getItem('t1horaSabadoFim'));
+		$('#t1minutosSabadoFim').val(localStorage.getItem('t1minutosSabadoFim'));
+	});
+	$('#2show').click(function(){
+		// configrações do salvamento arquivo de produção
+   		$('#conteiner-3').toggle();
+		$('#t2hora').val(localStorage.getItem('t2hora'));
+		$('#t2minutos').val(localStorage.getItem('t2minutos'));
+		// config. troca de turno
+		$('#conteiner-6').toggle();
+		$('#t2horaSabadoInicio').val(localStorage.getItem('t2horaSabadoInicio'));
+		$('#t2minutosSabadoInicio').val(localStorage.getItem('t2minutosSabadoInicio'));
+		$('#t2horaSabadoFim').val(localStorage.getItem('t2horaSabadoFim'));
+		$('#t2minutosSabadoFim').val(localStorage.getItem('t2minutosSabadoFim'));
+	});
+	$('#3show').click(function(){
+		// configrações do salvamento arquivo de produção
+   		$('#conteiner-4').toggle();
+		$('#t3hora').val(localStorage.getItem('t3hora'));
+		$('#t3minutos').val(localStorage.getItem('t3minutos'));
+		// config. troca de turno
+		$('#conteiner-7').toggle();
+		$('#t3horaSabadoInicio').val(localStorage.getItem('t3horaSabadoInicio'));
+		$('#t3minutosSabadoInicio').val(localStorage.getItem('t3minutosSabadoInicio'));
+		$('#t3horaSabadoFim').val(localStorage.getItem('t3horaSabadoFim'));
+		$('#t3minutosSabadoFim').val(localStorage.getItem('t3minutosSabadoFim'));
+	});
+	
+	// salvar dados do input t1
+	
+	$('#t1horaSabadoInicio').blur(function(){
+		localStorage.setItem('t1horaSabadoInicio', $('#t1horaSabadoInicio').val());
+	});
+	$('#t1minutosSabadoInicio').blur(function(){
+		localStorage.setItem('t1minutosSabadoInicio', $('#t1minutosSabadoInicio').val());
+	});
+		
+	$("#t1horaSabadoFim").blur(function(){
+		localStorage.setItem('t1horaSabadoFim', $('#t1horaSabadoFim').val());
+	});
+	$('#t1minutosSabadoFim').blur(function(){
+		localStorage.setItem('t1minutosSabadoFim', $('#t1minutosSabadoFim').val());
+	});
+	
+	// salvar dados do input t2
+	
+	$('#t2horaSabadoInicio').blur(function(){
+		localStorage.setItem('t2horaSabadoInicio', $('#t2horaSabadoInicio').val());
+	});
+	$('#t2minutosSabadoInicio').blur(function(){
+		localStorage.setItem('t2minutosSabadoInicio', $('#t2minutosSabadoInicio').val());
+	});
+		
+	$("#t2horaSabadoFim").blur(function(){
+		localStorage.setItem('t2horaSabadoFim', $('#t2horaSabadoFim').val());
+	});
+	$('#t2minutosSabadoFim').blur(function(){
+		localStorage.setItem('t2minutosSabadoFim', $('#t2minutosSabadoFim').val());
+	});
+	
+	// salvar dados do input t3
+	
+	$('#t3horaSabadoInicio').blur(function(){
+		localStorage.setItem('t3horaSabadoInicio', $('#t3horaSabadoInicio').val());
+	});
+	$('#t3minutosSabadoInicio').blur(function(){
+		localStorage.setItem('t3minutosSabadoInicio', $('#t3minutosSabadoInicio').val());
+	});
+		
+	$("#t3horaSabadoFim").blur(function(){
+		localStorage.setItem('t3horaSabadoFim', $('#t3horaSabadoFim').val());
+	});
+	$('#t3minutosSabadoFim').blur(function(){
+		localStorage.setItem('t3minutosSabadoFim', $('#t3minutosSabadoFim').val());
+	});
+});
+
+</script>
+<body>
+<div id="conteiner-1">
+	<h2>Suas configurações</h2>
+	<p id="span">Atualizações automáticas</p>
+	<select id="select"><option id="o1">ON (automatioco)</option><option id="o2">OFF (manual)</option></select>
+</div>
+<div id="div-turnos">
+<span id="1show"><div class="circulo">T1</div></span>
+<span id="2show"><div class="circulo">T2</div></span>
+<span id="3show"><div class="circulo">T3</div></span>
+</div>
+<div id="conteiner-2">
+	<h3>Salvamento automático T1:</h3>
+	<span>Hora</span><input id="t1hora" type="number"></input><span>Minutos</span><input id="t1minutos" type="number"></input>
+</div>
+<div id="conteiner-3">
+	<h3>Salvamento automático T2:</h3>
+	<span>Hora</span><input id="t2hora" type="number"></input><span>Minutos</span><input id="t2minutos" type="number"></input>
+</div>
+
+<div id="conteiner-4">
+	<h3>Salvamento automático T3:</h3>
+	<span>Hora</span><input id="t3hora" type="number"></input><span>Minutos</span><input id="t3minutos" type="number"></input>
+</div>
+<div id="conteiner-5">
+	<h4>Horário do turno sábado t1</h4>
+	<span>Início- </span><input id="t1horaSabadoInicio" type="number" ></input>:<input type="number" id="t1minutosSabadoInicio"></input><br>
+	<span>Fim --</span><input id="t1horaSabadoFim" type="number" ></input>:<input type="number" id="t1minutosSabadoFim"></input>
+</div>
+<div id="conteiner-6">
+	<h4>Horário do turno sábado t2</h4>
+	<span>Início -</span><input id="t2horaSabadoInicio" type="number" ></input>:<input type="number" id="t2minutosSabadoInicio"></input><br>
+	<span>Fim --</span><input id="t2horaSabadoFim" type="number" ></input>:<input type="number" id="t2minutosSabadoFim"></input>
+</div>
+<div id="conteiner-7">
+	<h4>Horário do turno sábado t3</h4>
+	<span>Início-</span><input id="t3horaSabadoInicio" type="number" ></input>:<input type="number" id="t3minutosSabadoInicio"></input><br>
+	<span>Fim --</span><input id="t3horaSabadoFim" type="number" ></input>:<input type="number" id="t3minutosSabadoFim"></input>
+</div>
+</body>
+</html>
