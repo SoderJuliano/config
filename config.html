@@ -93,9 +93,13 @@ $(document).ready(function(){
 		
 	$("#t1horaSabadoFim").blur(function(){
 		localStorage.setItem('t1horaSabadoFim', $('#t1horaSabadoFim').val());
+		localStorage.setItem('t2horaSabadoIbicio', $('#t1horaSabadoFim').val());
+		$('#t2horaSabadoInicio').val( $('#t1horaSabadoFim').val());
 	});
 	$('#t1minutosSabadoFim').blur(function(){
 		localStorage.setItem('t1minutosSabadoFim', $('#t1minutosSabadoFim').val());
+		localStorage.setItem('t2minutosSabadoInicio', $('#t1minutosSabadoFim').val());
+		$('#t2minutosSabadoInicio').val( $('#t1minutosSabadoFim').val());
 	});
 	
 	// salvar dados do input t2
@@ -109,9 +113,13 @@ $(document).ready(function(){
 		
 	$("#t2horaSabadoFim").blur(function(){
 		localStorage.setItem('t2horaSabadoFim', $('#t2horaSabadoFim').val());
+		localStorage.setItem('t3horaSabadoIbicio', $('#t2horaSabadoFim').val());
+		$('#t3horaSabadoInicio').val( $('#t2horaSabadoFim').val());
 	});
 	$('#t2minutosSabadoFim').blur(function(){
 		localStorage.setItem('t2minutosSabadoFim', $('#t2minutosSabadoFim').val());
+		localStorage.setItem('t3minutosSabadoInicio', $('#t2minutosSabadoFim').val());
+		$('#t3minutosSabadoInicio').val( $('#t2minutosSabadoFim').val());
 	});
 	
 	// salvar dados do input t3
@@ -125,9 +133,13 @@ $(document).ready(function(){
 		
 	$("#t3horaSabadoFim").blur(function(){
 		localStorage.setItem('t3horaSabadoFim', $('#t3horaSabadoFim').val());
+		localStorage.setItem('t1horaSabadoIbicio', $('#t3horaSabadoFim').val());
+		$('#t1horaSabadoInicio').val( $('#t3horaSabadoFim').val());
 	});
 	$('#t3minutosSabadoFim').blur(function(){
 		localStorage.setItem('t3minutosSabadoFim', $('#t3minutosSabadoFim').val());
+		localStorage.setItem('t1minutosSabadoInicio', $('#t3minutosSabadoFim').val());
+		$('#t1minutosSabadoInicio').val( $('#t3minutosSabadoFim').val());
 	});
 });
 
