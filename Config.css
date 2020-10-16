@@ -7,6 +7,7 @@ font-family: Sans-serif;
 font-size: 20px;
 text-align: center;
 border-radius: 1em;
+opacity: 0.7;
 }
 #conteiner-2, #conteiner-3, #conteiner-4, #conteiner-5,#conteiner-6,#conteiner-7{
 	display:none;

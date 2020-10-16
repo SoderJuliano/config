@@ -46,6 +46,8 @@ $(document).ready(function(){
 		localStorage.setItem("t3minutos", $('#t3minutos').val());
 	});
 	$('#1show').click(function(){
+		// mostra o conteiner principal
+		$('#cnt-t1').show();
 		// configrações do salvamento arquivo de produção
    		$('#conteiner-2').toggle();
 		$('#t1hora').val(localStorage.getItem('t1hora'));
@@ -56,8 +58,12 @@ $(document).ready(function(){
 		$('#t1minutosSabadoInicio').val(localStorage.getItem('t1minutosSabadoInicio'));
 		$('#t1horaSabadoFim').val(localStorage.getItem('t1horaSabadoFim'));
 		$('#t1minutosSabadoFim').val(localStorage.getItem('t1minutosSabadoFim'));
+		$('#cnt-t3').hide();
+		$('#cnt-t2').hide();
 	});
 	$('#2show').click(function(){
+		// mostra o conteiner principal
+		$('#cnt-t2').show();
 		// configrações do salvamento arquivo de produção
    		$('#conteiner-3').toggle();
 		$('#t2hora').val(localStorage.getItem('t2hora'));
@@ -68,8 +74,12 @@ $(document).ready(function(){
 		$('#t2minutosSabadoInicio').val(localStorage.getItem('t2minutosSabadoInicio'));
 		$('#t2horaSabadoFim').val(localStorage.getItem('t2horaSabadoFim'));
 		$('#t2minutosSabadoFim').val(localStorage.getItem('t2minutosSabadoFim'));
+		$('#cnt-t3').hide();
+		$('#cnt-t1').hide();
 	});
 	$('#3show').click(function(){
+		// mostra o conteiner principal
+		$('#cnt-t3').show();
 		// configrações do salvamento arquivo de produção
    		$('#conteiner-4').toggle();
 		$('#t3hora').val(localStorage.getItem('t3hora'));
@@ -80,20 +90,24 @@ $(document).ready(function(){
 		$('#t3minutosSabadoInicio').val(localStorage.getItem('t3minutosSabadoInicio'));
 		$('#t3horaSabadoFim').val(localStorage.getItem('t3horaSabadoFim'));
 		$('#t3minutosSabadoFim').val(localStorage.getItem('t3minutosSabadoFim'));
+		$('#cnt-t2').hide();
+		$('#cnt-t1').hide();
 	});
 	
 	// salvar dados do input t1
 	
 	$('#t1horaSabadoInicio').blur(function(){
 		localStorage.setItem('t1horaSabadoInicio', $('#t1horaSabadoInicio').val());
+		localStorage.setItem('t3horaSabadoFim', $('#t1horaSabadoInicio').val());
 	});
 	$('#t1minutosSabadoInicio').blur(function(){
 		localStorage.setItem('t1minutosSabadoInicio', $('#t1minutosSabadoInicio').val());
+		localStorage.setItem('t3minutosSabadoFim', $('#t1minutosSabadoInicio').val());
 	});
 		
 	$("#t1horaSabadoFim").blur(function(){
 		localStorage.setItem('t1horaSabadoFim', $('#t1horaSabadoFim').val());
-		localStorage.setItem('t2horaSabadoIbicio', $('#t1horaSabadoFim').val());
+		localStorage.setItem('t2horaSabadoInicio', $('#t1horaSabadoFim').val());
 		$('#t2horaSabadoInicio').val( $('#t1horaSabadoFim').val());
 	});
 	$('#t1minutosSabadoFim').blur(function(){
@@ -106,14 +120,16 @@ $(document).ready(function(){
 	
 	$('#t2horaSabadoInicio').blur(function(){
 		localStorage.setItem('t2horaSabadoInicio', $('#t2horaSabadoInicio').val());
+		localStorage.setItem('t1horaSabadoFim', $('#t2horaSabadoInicio').val());
 	});
 	$('#t2minutosSabadoInicio').blur(function(){
 		localStorage.setItem('t2minutosSabadoInicio', $('#t2minutosSabadoInicio').val());
+		localStorage.setItem('t1minutosSabadoFim', $('#t2minutosSabadoInicio').val());
 	});
 		
 	$("#t2horaSabadoFim").blur(function(){
 		localStorage.setItem('t2horaSabadoFim', $('#t2horaSabadoFim').val());
-		localStorage.setItem('t3horaSabadoIbicio', $('#t2horaSabadoFim').val());
+		localStorage.setItem('t3horaSabadoInicio', $('#t2horaSabadoFim').val());
 		$('#t3horaSabadoInicio').val( $('#t2horaSabadoFim').val());
 	});
 	$('#t2minutosSabadoFim').blur(function(){
@@ -126,14 +142,16 @@ $(document).ready(function(){
 	
 	$('#t3horaSabadoInicio').blur(function(){
 		localStorage.setItem('t3horaSabadoInicio', $('#t3horaSabadoInicio').val());
+		localStorage.setItem('t2horaSabadoFim', $('#t3horaSabadoInicio').val());
 	});
 	$('#t3minutosSabadoInicio').blur(function(){
 		localStorage.setItem('t3minutosSabadoInicio', $('#t3minutosSabadoInicio').val());
+		localStorage.setItem('t2minutosSabadoFim', $('#t3minutosSabadoInicio').val());
 	});
 		
 	$("#t3horaSabadoFim").blur(function(){
 		localStorage.setItem('t3horaSabadoFim', $('#t3horaSabadoFim').val());
-		localStorage.setItem('t1horaSabadoIbicio', $('#t3horaSabadoFim').val());
+		localStorage.setItem('t1horaSabadoInicio', $('#t3horaSabadoFim').val());
 		$('#t1horaSabadoInicio').val( $('#t3horaSabadoFim').val());
 	});
 	$('#t3minutosSabadoFim').blur(function(){
@@ -145,43 +163,48 @@ $(document).ready(function(){
 
 </script>
 <body>
-<div id="conteiner-1">
-	<h2>Suas configurações</h2>
-	<p id="span">Atualizações automáticas</p>
-	<select id="select"><option id="o1">ON (automatioco)</option><option id="o2">OFF (manual)</option></select>
-</div>
 <div id="div-turnos">
 <span id="1show"><div class="circulo">T1</div></span>
 <span id="2show"><div class="circulo">T2</div></span>
 <span id="3show"><div class="circulo">T3</div></span>
 </div>
-<div id="conteiner-2">
-	<h3>Salvamento automático T1:</h3>
-	<span>Hora</span><input id="t1hora" type="number"></input><span>Minutos</span><input id="t1minutos" type="number"></input>
+<div id="cnt-t1">
+	<div id="conteiner-2">
+		<h3>Salvamento automático T1:</h3>
+		<span>Hora</span><input id="t1hora" type="number"></input><span>Minutos</span><input id="t1minutos" type="number"></input>
+	</div>
+	<div id="conteiner-5">
+		<h4>Horário do turno sábado t1</h4>
+		<span>Início- </span><input id="t1horaSabadoInicio" type="number" ></input>:<input type="number" id="t1minutosSabadoInicio"></input><br>
+		<span>Fim --</span><input id="t1horaSabadoFim" type="number" ></input>:<input type="number" id="t1minutosSabadoFim"></input>
+	</div>
 </div>
-<div id="conteiner-3">
-	<h3>Salvamento automático T2:</h3>
-	<span>Hora</span><input id="t2hora" type="number"></input><span>Minutos</span><input id="t2minutos" type="number"></input>
+<div id="cnt-t2">
+	<div id="conteiner-3">
+		<h3>Salvamento automático T2:</h3>
+		<span>Hora</span><input id="t2hora" type="number"></input><span>Minutos</span><input id="t2minutos" type="number"></input>
+	</div>
+	<div id="conteiner-6">
+		<h4>Horário do turno sábado t2</h4>
+		<span>Início -</span><input id="t2horaSabadoInicio" type="number" ></input>:<input type="number" id="t2minutosSabadoInicio"></input><br>
+		<span>Fim --</span><input id="t2horaSabadoFim" type="number" ></input>:<input type="number" id="t2minutosSabadoFim"></input>
+	</div>
 </div>
-
-<div id="conteiner-4">
-	<h3>Salvamento automático T3:</h3>
-	<span>Hora</span><input id="t3hora" type="number"></input><span>Minutos</span><input id="t3minutos" type="number"></input>
+<div id="cnt-t3">
+	<div id="conteiner-4">
+		<h3>Salvamento automático T3:</h3>
+		<span>Hora</span><input id="t3hora" type="number"></input><span>Minutos</span><input id="t3minutos" type="number"></input>
+	</div>
+	<div id="conteiner-7">
+		<h4>Horário do turno sábado t3</h4>
+		<span>Início-</span><input id="t3horaSabadoInicio" type="number" ></input>:<input type="number" id="t3minutosSabadoInicio"></input><br>
+		<span>Fim --</span><input id="t3horaSabadoFim" type="number" ></input>:<input type="number" id="t3minutosSabadoFim"></input>
+	</div>
 </div>
-<div id="conteiner-5">
-	<h4>Horário do turno sábado t1</h4>
-	<span>Início- </span><input id="t1horaSabadoInicio" type="number" ></input>:<input type="number" id="t1minutosSabadoInicio"></input><br>
-	<span>Fim --</span><input id="t1horaSabadoFim" type="number" ></input>:<input type="number" id="t1minutosSabadoFim"></input>
-</div>
-<div id="conteiner-6">
-	<h4>Horário do turno sábado t2</h4>
-	<span>Início -</span><input id="t2horaSabadoInicio" type="number" ></input>:<input type="number" id="t2minutosSabadoInicio"></input><br>
-	<span>Fim --</span><input id="t2horaSabadoFim" type="number" ></input>:<input type="number" id="t2minutosSabadoFim"></input>
-</div>
-<div id="conteiner-7">
-	<h4>Horário do turno sábado t3</h4>
-	<span>Início-</span><input id="t3horaSabadoInicio" type="number" ></input>:<input type="number" id="t3minutosSabadoInicio"></input><br>
-	<span>Fim --</span><input id="t3horaSabadoFim" type="number" ></input>:<input type="number" id="t3minutosSabadoFim"></input>
+<div id="conteiner-1">
+	<h2>Suas configurações</h2>
+	<p id="span">Atualizações automáticas</p>
+	<select id="select"><option id="o1">ON (automatioco)</option><option id="o2">OFF (manual)</option></select>
 </div>
 </body>
 </html>
